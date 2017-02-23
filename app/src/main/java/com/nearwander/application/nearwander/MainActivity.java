@@ -1,5 +1,5 @@
 package com.nearwander.application.nearwander;
-
+//Byan Gilar Naufal Rafli Zulkarnain
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
