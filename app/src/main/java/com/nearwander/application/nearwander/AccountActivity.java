@@ -44,6 +44,7 @@ public class AccountActivity extends AppCompatActivity {
         mLogOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
+                FirebaseAuth.getInstance().signOut();
 
                 mAuth.signOut();
 
