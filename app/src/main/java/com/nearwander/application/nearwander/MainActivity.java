@@ -13,6 +13,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -42,17 +48,43 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtPasswordLogin;
     private FirebaseAuth firebaseAuth;
 
+    LoginButton loginButton;
+    CallbackManager callbackManager;
+
     TextView logo;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_main);
 
         logo = (TextView) findViewById(R.id.logo);
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/JosefinSans-Bold.ttf");
         logo.setTypeface(myCustomFont);
+
+        loginButton = (LoginButton) findViewById(R.id.facebookBtn);
+        loginButton.setReadPermissions("email", "public_profile");
+        callbackManager = CallbackManager.Factory.create();
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Intent i = new Intent(MainActivity.this, SetupProfile.class);
+                i.putExtra("Email", firebaseAuth.getCurrentUser().getDisplayName());
+                startActivity(i);
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+
+            }
+        });
 
         txtEmailLogin = (EditText) findViewById(R.id.email);
         txtPasswordLogin = (EditText) findViewById(R.id.password);
@@ -115,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
