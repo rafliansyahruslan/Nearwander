@@ -93,7 +93,8 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/login_button"
+                    android:id="@+id/btnLogin"
+                    android:onClick="btnLogin_Click"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -115,7 +116,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/forgot_password"
+                    android:id="@+id/btnForgotPassword"
+                    android:onClick="btnForgotPassword_Click"
                     android:labelFor="@+id/forgot_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -125,7 +127,8 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/signUp"
+                    android:id="@+id/btnSignUp"
+                    android:onClick="btnSignUp_Click"
                     android:labelFor="@+id/signUp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
