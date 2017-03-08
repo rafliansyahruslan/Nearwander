@@ -1,12 +1,16 @@
 package com.nearwander.application.nearwander;
 //Byan Gilar Naufal Rafli Zulkarnain
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -34,11 +38,25 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "MAIN_ACTIVITY";
 
+    private EditText txtEmailLogin;
+    private EditText txtPasswordLogin;
+    private FirebaseAuth firebaseAuth;
+
+    TextView logo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        logo = (TextView) findViewById(R.id.logo);
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/JosefinSans-Bold.ttf");
+        logo.setTypeface(myCustomFont);
+
+        txtEmailLogin = (EditText) findViewById(R.id.email);
+        txtPasswordLogin = (EditText) findViewById(R.id.password);
+        firebaseAuth = FirebaseAuth.getInstance();
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -48,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(firebaseAuth.getCurrentUser() != null){
 
-                    startActivity(new Intent(MainActivity.this, AccountActivity.class));
+                    startActivity(new Intent(MainActivity.this, SetupProfile.class));
                 }
             }
         };
@@ -132,6 +150,40 @@ public class MainActivity extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    public void btnLogin_Click(View v){
+
+        final ProgressDialog progressDialog = ProgressDialog.show(MainActivity.this, "Please wait...", "Processing", true);
+
+        (firebaseAuth.signInWithEmailAndPassword(txtEmailLogin.getText().toString(), txtPasswordLogin.getText().toString())).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                progressDialog.dismiss();
+
+                if (task.isSuccessful()){
+                    Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(MainActivity.this, SetupProfile.class);
+                    i.putExtra("Email", firebaseAuth.getCurrentUser().getEmail());
+                    startActivity(i);
+                }else {
+                    Log.e("ERROR", task.getException().toString());
+                    Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    public void btnSignUp_Click(View v){
+
+        Intent i = new Intent(MainActivity.this, SignupActivity.class);
+        startActivity(i);
+    }
+
+    public void btnForgotPassword_Click(View v){
+
+        Intent i = new Intent(MainActivity.this, ForgotPasswordActivity.class);
+        startActivity(i);
     }
 
 }

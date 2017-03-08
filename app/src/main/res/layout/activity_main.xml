@@ -43,7 +43,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
-                android:layout_weight="0.72"></LinearLayout>
+                android:layout_weight="0.72">
+
+                <TextView
+                    android:id="@+id/logo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingBottom="52dp"
+                    android:paddingTop="52dp"
+                    android:text="@string/logo"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_orange_light"
+                    android:textSize="52sp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -80,7 +93,8 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/login_button"
+                    android:id="@+id/btnLogin"
+                    android:onClick="btnLogin_Click"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -102,7 +116,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/forgot_password"
+                    android:id="@+id/btnForgotPassword"
+                    android:onClick="btnForgotPassword_Click"
                     android:labelFor="@+id/forgot_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -112,7 +127,8 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/signUp"
+                    android:id="@+id/btnSignUp"
+                    android:onClick="btnSignUp_Click"
                     android:labelFor="@+id/signUp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
