@@ -1,12 +1,14 @@
 package com.nearwander.application.nearwander;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.nearwander.application.nearwander.tabbed.HomePageActivity;
 
 public class SetupProfile extends AppCompatActivity {
 
@@ -30,6 +32,8 @@ public class SetupProfile extends AppCompatActivity {
             public void onClick (View arg0){
                 if(input.getText().toString().equals("")){
                     Toast.makeText(SetupProfile.this, "Please Insert", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(SetupProfile.this, HomePageActivity.class);
+                    startActivity(i);
                 }else {
                     Toast.makeText(SetupProfile.this,"SAVED!!",Toast.LENGTH_SHORT).show();
                 }
