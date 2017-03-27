@@ -1,5 +1,6 @@
 package com.nearwander.application.nearwander.tabbed;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nearwander.application.nearwander.R;
+import com.nearwander.application.nearwander.SetupProfile;
 
 public class HomePageActivity extends AppCompatActivity {
 
@@ -93,7 +95,8 @@ public class HomePageActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent i = new Intent(getApplicationContext(), SetupProfile.class);
+            startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);
