@@ -24,6 +24,9 @@
         <activity android:name=".SignupActivity" />
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".SetupProfile" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAiSPoFEUStxVoPpAsHbdCxnR9CYyjPw2A" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
