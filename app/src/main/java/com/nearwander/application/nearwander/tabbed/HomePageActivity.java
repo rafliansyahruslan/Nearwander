@@ -2,11 +2,13 @@ package com.nearwander.application.nearwander.tabbed;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -18,6 +20,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,10 +29,16 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.AutocompleteFilter;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.nearwander.application.nearwander.R;
 import com.nearwander.application.nearwander.SetupProfile;
 
-public class HomePageActivity extends FragmentActivity implements OnConnectionFailedListener {
+public class HomePageActivity extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks,
+    GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
 
     //To add Icons to tabs
     /*in MainActivity.java file after tabLayout.setupWithViewPager(mViewPager);
@@ -50,6 +59,8 @@ public class HomePageActivity extends FragmentActivity implements OnConnectionFa
      */
     private ViewPager mViewPager;
     private GoogleApiClient mGoogleApiClient;
+    private static final String TAG = "HomePage_Activity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +85,24 @@ public class HomePageActivity extends FragmentActivity implements OnConnectionFa
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_event_note_black_24dp);
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_notifications_black_24dp);
         tabLayout.getTabAt(4).setIcon(R.drawable.ic_account_circle_black_24dp);
+
+
+        PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
+                getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+
+        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                // TODO: Get info about the selected place.
+                Log.i(TAG, "Place: " + place.getName());//get place details here
+            }
+
+            @Override
+            public void onError(Status status) {
+                // TODO: Handle the error.
+                Log.i(TAG, "An error occurred: " + status);
+            }
+        });
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +141,21 @@ public class HomePageActivity extends FragmentActivity implements OnConnectionFa
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
 
     }
 

@@ -6,4 +6,5 @@
     <color name="colorWhite">#ffffff</color>
     <color name="trans">#80000000</color>
     <color name="grey">#eeeeee</color>
+    <color name="black">#000</color>
 </resources>
