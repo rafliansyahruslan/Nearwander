@@ -49,18 +49,7 @@
             android:name=".tabbed.HomePageActivity"
             android:label="@string/title_activity_home_page"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!--<activity
-            android:name=".tabbed.nearby.PlacesMain"
-            android:label="@string/title_activity_places"/>
-        <activity
-            android:name=".tabbed.PlaceDetail.PlaceDetail"
-            android:label="@string/title_activity_places"/>
-        <activity
-            android:name=".tabbed.nearby.PlaceResult"
-            android:label="@string/title_activity_place_result"
-            android:parentActivityName=".tabbed.nearby.PlacesMain"/>
 
-        <activity android:name=".tabbed.nearby.Search"/>-->
         <activity
             android:name=".NavigationDrawable"
             android:label="@string/title_activity_navigation_drawable"
