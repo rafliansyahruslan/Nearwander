@@ -7,4 +7,22 @@
     <color name="trans">#80000000</color>
     <color name="grey">#eeeeee</color>
     <color name="black">#000</color>
+    <color name="primary_light">#ff6636</color>
+    <color name="colorPrimaryLight">@android:color/holo_orange_light</color>
+
+    <color name="yellow">#fbff00</color>
+    <color name="text_primary">#D9FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="light_gray">#FFe1e1e1</color>
+    <color name="dark_gray">#FFD1D1D1</color>
+    <color name="blue">#0288D1</color>
+    <color name="teal">#009688</color>
+    <color name="green">#2E7D32</color>
+    <color name="fab_green">#4CAF50</color>
+    <color name="text_secondary">#D9000000</color>
+
+    <color name="search_primary">#00838F</color>
+    <color name="search_primary_dark">#006064</color>
+    <color name="search_primary_light">#46565e</color>
+
 </resources>

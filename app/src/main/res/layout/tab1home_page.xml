@@ -8,9 +8,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.nearwander.application.nearwander.tabbed.HomePageActivity$PlaceholderFragment">
 
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/search_homePage"
+        android:editable="false"
+        android:inputType="none"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/ic_search_black_24dp"
+        android:ems="10"
+        android:textAlignment="textStart"
+        android:hint="@string/search"
+        android:gravity="center" >
+    </EditText>
 
 </RelativeLayout>

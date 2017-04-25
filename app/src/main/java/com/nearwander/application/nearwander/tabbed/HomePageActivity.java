@@ -37,8 +37,7 @@ import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.nearwander.application.nearwander.R;
 import com.nearwander.application.nearwander.SetupProfile;
 
-public class HomePageActivity extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks,
-    GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
+public class HomePageActivity extends AppCompatActivity{
 
     //To add Icons to tabs
     /*in MainActivity.java file after tabLayout.setupWithViewPager(mViewPager);
@@ -87,32 +86,6 @@ public class HomePageActivity extends FragmentActivity implements GoogleApiClien
         tabLayout.getTabAt(4).setIcon(R.drawable.ic_account_circle_black_24dp);
 
 
-        PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
-                getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
-
-        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onPlaceSelected(Place place) {
-                // TODO: Get info about the selected place.
-                Log.i(TAG, "Place: " + place.getName());//get place details here
-            }
-
-            @Override
-            public void onError(Status status) {
-                // TODO: Handle the error.
-                Log.i(TAG, "An error occurred: " + status);
-            }
-        });
-
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-
     }
 
 
@@ -137,26 +110,6 @@ public class HomePageActivity extends FragmentActivity implements GoogleApiClien
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
-
-    @Override
-    public void onClick(View v) {
-
-    }
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
     }
 
     //Deleted PlaceholderFragment class from here
