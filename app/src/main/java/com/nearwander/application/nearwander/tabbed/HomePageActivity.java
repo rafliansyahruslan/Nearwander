@@ -27,6 +27,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.common.api.Status;
@@ -36,6 +37,7 @@ import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.nearwander.application.nearwander.R;
 import com.nearwander.application.nearwander.SetupProfile;
+import com.nearwander.application.nearwander.chat.ChatActivity;
 
 public class HomePageActivity extends AppCompatActivity{
 
@@ -59,6 +61,8 @@ public class HomePageActivity extends AppCompatActivity{
     private ViewPager mViewPager;
     private GoogleApiClient mGoogleApiClient;
     private static final String TAG = "HomePage_Activity";
+    //private Button mButtonMessage;
+    private FloatingActionButton mButtonMessage;
 
 
     @Override
@@ -66,8 +70,17 @@ public class HomePageActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+        mButtonMessage = (FloatingActionButton) findViewById(R.id.fab);
+        mButtonMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplication().getApplicationContext(), ChatActivity.class);
+                startActivity(i);
+            }
+        });
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -151,7 +164,7 @@ public class HomePageActivity extends AppCompatActivity{
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
+            // Show 5 total pages.
             return 5;
         }
 

@@ -36,16 +36,31 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:10.2.1'
     compile 'com.google.android.gms:play-services-location:10.2.1'
     compile 'com.google.android.gms:play-services-places:10.2.1'
-    compile 'com.google.firebase:firebase-core:10.2.1'
-    compile 'com.google.firebase:firebase-crash:10.2.1'
-    compile 'com.google.firebase:firebase-messaging:10.2.1'
-    compile 'com.google.firebase:firebase-storage:10.2.1'
-    compile 'com.google.firebase:firebase-database:10.2.1'
+    compile 'com.google.android.gms:play-services-appinvite:10.2.1'
+    compile 'com.google.android.gms:play-services-ads:10.2.1'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:support-annotations:25.3.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     testCompile 'junit:junit:4.12'
+
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    // Firebase UI
+    compile 'com.firebaseui:firebase-ui-database:1.2.0'
+
+    // Firebase
+    compile 'com.google.firebase:firebase-core:10.2.1'
+    compile 'com.google.firebase:firebase-crash:10.2.1'
+    compile 'com.google.firebase:firebase-messaging:10.2.1'
+    compile 'com.google.firebase:firebase-storage:10.2.1'
+    compile 'com.google.firebase:firebase-database:10.2.1'
+    compile 'com.google.firebase:firebase-analytics:10.2.1'
+    compile 'com.google.firebase:firebase-config:10.2.1'
+    compile 'com.google.firebase:firebase-appindexing:10.2.1'
+
+
 }
 apply plugin: 'com.google.gms.google-services'

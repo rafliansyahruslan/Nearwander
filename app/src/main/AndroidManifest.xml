@@ -49,12 +49,35 @@
             android:name=".tabbed.HomePageActivity"
             android:label="@string/title_activity_home_page"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".NavigationDrawable"
             android:label="@string/title_activity_navigation_drawable"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".tabbed.nearby.PlaceResult" />
+        <activity android:name=".tabbed.nearby.PlacesMain" />
+        <activity android:name=".tabbed.nearby.Search" />
+        <activity android:name=".tabbed.PlaceDetail.PlaceDetail" />
+        <activity android:name=".tabbed.nearby.Splash" />
+        <activity android:name=".chat.ChatActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data
+                    android:host="friendlychat.firebase.google.com"
+                    android:scheme="http"
+                    android:pathPrefix="/message"
+                    />
+            </intent-filter>
         </activity>
+        <service
+            android:name=".chat.MyFirebaseInstanceIdService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

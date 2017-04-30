@@ -18,6 +18,8 @@ import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.nearwander.application.nearwander.tabbed.*;*/
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 import com.nearwander.application.nearwander.R;
+import com.nearwander.application.nearwander.tabbed.nearby.PlacesMain;
+import com.nearwander.application.nearwander.tabbed.nearby.Splash;
 
 public class Tab1Home extends Fragment {
 
@@ -33,7 +35,7 @@ public class Tab1Home extends Fragment {
         mEditText = (EditText) rootView.findViewById(R.id.search_homePage);
         mEditText.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View arg0) {
                 try {
                     Intent intent =
                             new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY)
@@ -44,6 +46,8 @@ public class Tab1Home extends Fragment {
                 } catch (GooglePlayServicesNotAvailableException e) {
                     // TODO: Handle the error.
                 }
+                /*Intent intent = new Intent(getActivity(), PlacesMain.class);
+                startActivity(intent);*/
             }
         });
         return rootView;
