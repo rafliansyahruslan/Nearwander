@@ -53,8 +53,8 @@ public class Splash extends Activity {
         setContentView(R.layout.activity_splash);
         robotobold = Typeface.createFromAsset(this.getAssets(), "Roboto-Bold.ttf");
 
-        WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
-        wifiManager.setWifiEnabled(true);
+        /*WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+        wifiManager.setWifiEnabled(true);*/
 
         img = (ImageView)findViewById(R.id.imageView);
         img1 = (ImageView)findViewById(R.id.imageView2);

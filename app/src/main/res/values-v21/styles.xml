@@ -10,6 +10,12 @@
         <item name="android:textColorPrimary">@color/text_primary</item>
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+        <item name="android:textColorPrimaryInverse">@color/black</item>
+        <item name="android:textColorSecondary">@color/black</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimaryLight</item>
+        <item name="android:colorForeground">@color/cardview_light_background</item>
     </style>
 
     <style name="ActionBar.Solid.AppMainStyle" parent="Base.Widget.AppCompat.Light.ActionBar.Solid">

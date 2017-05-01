@@ -47,7 +47,6 @@
 
         <activity
             android:name=".tabbed.HomePageActivity"
-            android:label="@string/title_activity_home_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NavigationDrawable"
@@ -60,16 +59,18 @@
         <activity android:name=".tabbed.nearby.Splash" />
         <activity android:name=".chat.ChatActivity">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
-                    android:host="friendlychat.firebase.google.com"
-                    android:scheme="http"
+                    android:host="nearwander-ab9d5.firebaseio.com"
                     android:pathPrefix="/message"
-                    />
+                    android:scheme="https" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".chat.MyFirebaseInstanceIdService"
             android:exported="false">
@@ -78,6 +79,10 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name=".tabbed.Settings.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

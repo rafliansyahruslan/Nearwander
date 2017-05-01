@@ -86,6 +86,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:ems="10"
+                    android:textColor="@color/black"
                     android:inputType="textEmailAddress"
                     android:labelFor="@+id/email"
                     android:hint="@string/email"
@@ -94,6 +95,7 @@
                 <EditText
                     android:id="@+id/password"
                     android:labelFor="@+id/password"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"

@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
@@ -35,9 +36,12 @@ import com.google.android.gms.location.places.AutocompleteFilter;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.nearwander.application.nearwander.MainActivity;
 import com.nearwander.application.nearwander.R;
 import com.nearwander.application.nearwander.SetupProfile;
 import com.nearwander.application.nearwander.chat.ChatActivity;
+import com.nearwander.application.nearwander.tabbed.Settings.SettingsActivity;
 
 public class HomePageActivity extends AppCompatActivity{
 
@@ -63,6 +67,9 @@ public class HomePageActivity extends AppCompatActivity{
     private static final String TAG = "HomePage_Activity";
     //private Button mButtonMessage;
     private FloatingActionButton mButtonMessage;
+
+    /*private FirebaseAuth mFirebaseUser;
+    private FirebaseAuth mFirebaseAuth;*/
 
 
     @Override
@@ -118,8 +125,13 @@ public class HomePageActivity extends AppCompatActivity{
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent i = new Intent(getApplicationContext(), SetupProfile.class);
+            Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
             startActivity(i);
+        }else if (id == R.id.sign_out_menu){
+            FirebaseAuth.getInstance().signOut();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

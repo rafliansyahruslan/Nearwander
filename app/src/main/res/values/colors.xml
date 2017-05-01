@@ -6,7 +6,7 @@
     <color name="colorWhite">#ffffff</color>
     <color name="trans">#80000000</color>
     <color name="grey">#eeeeee</color>
-    <color name="black">#000</color>
+    <color name="black">#000000</color>
     <color name="primary_light">#ff6636</color>
     <color name="colorPrimaryLight">@android:color/holo_orange_light</color>
 
