@@ -120,7 +120,7 @@ public class ChatActivity extends AppCompatActivity implements GoogleApiClient.O
         setContentView(R.layout.activity_chat);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
-        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        //mFirebaseUser = mFirebaseAuth.getCurrentUser();
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mUsername = mFirebaseAuth.getCurrentUser().getDisplayName();
