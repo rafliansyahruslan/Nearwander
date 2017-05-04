@@ -100,7 +100,7 @@ public class ChatActivity extends AppCompatActivity implements GoogleApiClient.O
     private GoogleApiClient mGoogleApiClient;
     private FirebaseRemoteConfig mFirebaseRemoteConfig;
     private FirebaseAnalytics mFirebaseAnalytics;
-    private static final String MESSAGE_URL = "https://nearwander-ab9d5.firebaseio.com/";
+    private static final String MESSAGE_URL = "https://nearwander-ab9d5.firebaseio.com/messages";
 
     private Button mSendButton;
     private RecyclerView mMessageRecyclerView;
