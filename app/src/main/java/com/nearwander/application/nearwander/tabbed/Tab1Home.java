@@ -47,7 +47,7 @@ public class Tab1Home extends Fragment {
                     // TODO: Handle the error.
                 }
                 /*Intent intent = new Intent(getActivity(), PlacesMain.class);
-                startActivity(intent);*/
+                getActivity().startActivity(intent);*/
             }
         });
         return rootView;

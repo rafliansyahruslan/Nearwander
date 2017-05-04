@@ -1,5 +1,6 @@
 <resources>
     <string name="facebook_app_id">741678779339835</string>
+    <string name="about_us">About us</string>
 
 
     <string name="app_name">Nearwander</string>
@@ -65,6 +66,7 @@
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
+    <string name="edit_profile">Edit Profile</string>
     <string name="pref_header_general">General</string>
 
     <string name="pref_title_social_recommendations">Enable social recommendations</string>

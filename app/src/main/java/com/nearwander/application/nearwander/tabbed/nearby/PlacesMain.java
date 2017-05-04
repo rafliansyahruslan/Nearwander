@@ -30,8 +30,8 @@ public class PlacesMain extends FragmentActivity{
         });
 
         fragAll = new PlacesGrid();
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.places_grid, fragAll);
-        ft.commit();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction().add(R.id.places_grid, fragAll);
+        //ft.setTransition(fragAll);
+        ft.commitNow();
     }
 }

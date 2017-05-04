@@ -36,6 +36,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.nearwander.application.nearwander.tabbed.HomePageActivity;
+import com.nearwander.application.nearwander.userprofile.SetupProfile;
 
 import static com.nearwander.application.nearwander.R.string.default_web_client_id;
 
@@ -202,8 +203,8 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                         }else {
                             finish();
-                            Intent i = new Intent(MainActivity.this, SetupProfile.class);
-                            i.putExtra("Email", firebaseAuth.getCurrentUser().getEmail());
+                            Intent i = new Intent(MainActivity.this, HomePageActivity.class);
+                            //i.putExtra("Email", firebaseAuth.getCurrentUser().getEmail());
                             startActivity(i);
 
                         }
